@@ -11,7 +11,7 @@ const UserDetails = object({
 const createUser = async (req, res) => {
   try {
     assert(req.body, UserDetails, "User data is invalid");
-    return res.status(200).json({message:"User Signed Up successfully"})
+    return res.status(200).json({message:"User Signed Up successfully", data: {...UserDetails}})
   } catch (error) {
     const { path, failures } = error;
     // Handle errors based on path and error messages
@@ -28,7 +28,7 @@ const LoginDetails = object({
 const loginUser = async (req, res) => {
 try {
     assert(req.body, LoginDetails)
-    return res.status(200).json({message:"User Signed Up successfully"})
+    return res.status(200).json({message:"User Signed In successfully"})
 } catch (error) {
     const { path, failures } = error;
     // Handle errors based on path and error messages
